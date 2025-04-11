@@ -12,7 +12,7 @@ function Electronicscmp() {
     }, []);
 
     const Display = (val) => {
-        Navigation(`products/${val}`);
+        Navigation(`/products/${val}`);
     };
 
     return (
