@@ -1,14 +1,19 @@
-import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react"
+import { NavLink, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function NavBarcmp() {
-    const [count, setCount] = useState([])
+    const [count, setCount] = useState([]);
+   // const location = useLocation();
     useEffect(() => {
         fetch('https://fakestoreapi.com/products/categories')
             .then(res => res.json())
             .then(json => setCount(json))
 
     }, [])
+
+    // const isCategoryActive = (category) => {
+    //     return location.pathname.includes(`/${category}`);
+    // };
     return (
         <>
             <nav className="navbar navbar-expand-sm navbar-dark bg-primary">

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 function Electronicscmp() {
     const [count, setCount] = useState([]);
     const Navigation = useNavigate();
@@ -9,8 +8,9 @@ function Electronicscmp() {
         fetch('https://fakestoreapi.com/products/category/electronics')
             .then(res => res.json())
             .then(json => setCount(json));
+            
     }, []);
-
+    
     const Display = (val) => {
         Navigation(`/products/${val}`);
     };

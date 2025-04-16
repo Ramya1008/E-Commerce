@@ -9,6 +9,7 @@ import ProdDescCmp from "./productdesc";
 import SignUpForm from "./signup";
 import LoginInForm from "./login";
 import AllProducts from "./allproducts";
+import EditProd from "./editprod";
 
 function Routingcom() {
 
@@ -27,6 +28,8 @@ function Routingcom() {
                         <Route path="/signup" element={<SignUpForm />} />
                         <Route path="/login" element={<LoginInForm />} />
                         <Route path="/products" element={<AllProducts />} />
+                        <Route path="/home" element={<Sectioncmp />} />
+                        <Route path="/edit/:id" element={<EditProd />} />
 
                     </Route>
                 </Routes>

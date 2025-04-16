@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
     const [data, setData] = useState({
         username: '',
         password: ''
     });
+
+    const navigate = useNavigate(); 
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -13,6 +16,7 @@ function LoginForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+    
         fetch('https://fakestoreapi.com/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -20,15 +24,21 @@ function LoginForm() {
         })
             .then(res => res.json())
             .then(json => {
-                console.log('Login Success:', json);
+                if (json.token) {
+                    fetch('https://fakestoreapi.com/users')
+                        .then(res => res.json())
+                        .then(user => {
+                            navigate('/home');
+                        });
+                } else {
+                    alert("Invalid credentials");
+                }
             })
-            .catch(err => console.error('Login Error:', err));
     };
 
     return (
         <div className="container mt-5" style={{ maxWidth: "350px" }}>
             <form onSubmit={handleSubmit}>
-                <h4 className="mb-4 text-center">Login</h4>
                 <div className="mb-3">
                     <label className="form-label">Username</label>
                     <input
@@ -58,5 +68,6 @@ function LoginForm() {
 }
 
 export default LoginForm;
+
 
 
