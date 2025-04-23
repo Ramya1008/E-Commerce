@@ -14,7 +14,6 @@ import EditProd from "./editprod";
 function Routingcom() {
 
     return (
-
         <>
             <BrowserRouter>
                 <Routes>
@@ -24,12 +23,12 @@ function Routingcom() {
                         <Route path="jewelery" element={<Jewellerycmp />} />
                         <Route path="men's clothing" element={<Mencmp />} />
                         <Route path="women's clothing" element={<Womencmp />} />
-                        <Route path="/products/:id" element={<ProdDescCmp />} />
-                        <Route path="/signup" element={<SignUpForm />} />
-                        <Route path="/login" element={<LoginInForm />} />
-                        <Route path="/products" element={<AllProducts />} />
-                        <Route path="/home" element={<Sectioncmp />} />
-                        <Route path="/edit/:id" element={<EditProd />} />
+                        <Route path="products/:id" element={<ProdDescCmp />} />
+                        <Route path="signup" element={<SignUpForm />} />
+                        <Route path="login" element={<LoginInForm />} />
+                        <Route path="products" element={<AllProducts />} />
+                        <Route path="home" element={<Sectioncmp />} />
+                        <Route path="edit/:id" element={<EditProd />} />
 
                     </Route>
                 </Routes>

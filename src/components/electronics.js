@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useFetch from "./customHook";
 function Electronicscmp() {
-    const [count, setCount] = useState([]);
+    //const [count, setCount] = useState([]);
     const Navigation = useNavigate();
-
-    useEffect(() => {
+    const [count]= useFetch("https://fakestoreapi.com/products/category/electronics")
+    /*useEffect(() => {
         fetch('https://fakestoreapi.com/products/category/electronics')
             .then(res => res.json())
             .then(json => setCount(json));
             
-    }, []);
+    }, []);*/
     
     const Display = (val) => {
         Navigation(`/products/${val}`);

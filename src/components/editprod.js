@@ -41,9 +41,6 @@ function EditProd() {
             alert("Product Updated!");
             navigate("/products");
         })
-        .catch((err) => {
-            alert("Error updating product: " + err);
-        });
     };
 
     return (

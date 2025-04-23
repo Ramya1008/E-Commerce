@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-
+import useFetch from "./customHook";
 function Jewellerycmp() {
-    const [count, setCount] = useState([])
+    //const [count, setCount] = useState([])
     const Navigation = useNavigate()
-
-
-    useEffect(() => {
+    const [count]= useFetch("https://fakestoreapi.com/products/category/jewelery")
+    /*useEffect(() => {
         fetch('https://fakestoreapi.com/products/category/jewelery')
             .then(res => res.json())
             .then(json => setCount(json))
-    }, [])
+    }, [])*/
     const Display = (val) => {
         Navigation(`/products/${val}`)
     }
